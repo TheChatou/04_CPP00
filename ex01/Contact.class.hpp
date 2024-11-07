@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:39:42 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/24 12:43:25 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:50:00 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Contact
 		std::string	_phoneNumber;
 		std::string	_darkestSecret;
 
-		std::string	truncateString(const std::string &str) const;
+		std::string	_truncateString(const std::string &str) const;
 		int			_checkInput(std::string input) const;
 };
 

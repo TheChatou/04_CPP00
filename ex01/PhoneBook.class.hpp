@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:35:54 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/24 11:53:19 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:51:22 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class PhoneBook
 	private:
 		Contact		_contacts[8];
 		int			_nbContacts;
+		
 		int			get_oldest_contact() const;
 		Contact		create_contact(Contact contact);
 };

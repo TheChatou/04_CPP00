@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:08:11 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/24 12:40:45 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:22:52 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@
 #define BG_CYAN    "\033[46m"      /* Cyan */
 #define BG_WHITE   "\033[47m"      /* White */
 
-// Combined styles
-#define WHITE_BG_BLACK_TEXT "\033[47m\033[30m"
-#define BOLD_WHITE_BG_BLACK_TEXT "\033[1m\033[47m\033[30m"
-#define ITALIC_WHITE_BG_BLACK_TEXT "\033[3m\033[47m\033[30m"
+// else
+#define SEPARATOR "-----------------------------------------------------"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:00:00 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/24 12:52:07 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:13:21 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,28 @@
 PhoneBook::PhoneBook()
 {
 	_nbContacts = 0;
-    std::cout << BOLD << RED << "*" << RESET;
-    std::cout << BOLD << GREEN << "*" << RESET;
-    std::cout << BOLD << YELLOW << "*" << RESET;
-    std::cout << BOLD << BLUE << "*" << RESET;
-    std::cout << BOLD << MAGENTA << "*" << RESET;
-    std::cout << BOLD << CYAN << "*" << RESET;
-    std::cout << BOLD << WHITE << "* " << RESET;
-    std::cout << BOLD << " Welcome to the PhoneBook " << RESET;
-    std::cout << BOLD << WHITE << " *" << RESET;
-    std::cout << BOLD << CYAN << "*" << RESET;
-    std::cout << BOLD << MAGENTA << "*" << RESET;
-    std::cout << BOLD << BLUE << "*" << RESET;
-    std::cout << BOLD << YELLOW << "*" << RESET;
-    std::cout << BOLD << GREEN << "*" << RESET;
-    std::cout << BOLD << RED << "*" << RESET;
-    std::cout << std::endl;
+    std::cout << BOLD << RED << "*" << RESET
+		<< BOLD << MAGENTA << "*" << RESET
+		<< BOLD << BLUE << "*" << RESET
+		<< BOLD << CYAN << "*" << RESET
+		<< BOLD << GREEN << "*" << RESET
+		<< BOLD << YELLOW << "*" << RESET
+		<< BOLD << WHITE << "* " << RESET
+		<< BOLD << UNDERLINE << "Welcome to the PhoneBook" << RESET
+		<< BOLD << WHITE << " *" << RESET
+		<< BOLD << YELLOW << "*" << RESET
+		<< BOLD << GREEN << "*" << RESET
+		<< BOLD << CYAN << "*" << RESET
+		<< BOLD << BLUE << "*" << RESET
+		<< BOLD << MAGENTA << "*" << RESET
+		<< BOLD << RED << "*" << RESET << std::endl;
 	std::cout << ITALIC << "You can ADD, SEARCH or EXIT" << RESET << std::endl;
 	return;
 }
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << BLUE << "*** See you soon ;) ***" << RESET << std::endl;
+	std::cout << BLUE << BOLD << "*** See you soon ***" << RESET << std::endl;
 }
 
 void	PhoneBook::add_contact()
@@ -46,6 +45,7 @@ void	PhoneBook::add_contact()
 	int oldestIndex;
 	
 	_nbContacts += 1;
+	std::cout << std::endl << BLUE << BOLD << " Adding Contact to the PhoneBook" << RESET << std::endl;
 	if (_nbContacts > 8)
 	{
 		std::cout << MAGENTA << "*** The Phone Book is full ***" << RESET << std::endl;
@@ -80,15 +80,15 @@ void	PhoneBook::search_contact() const
 		std::cout << MAGENTA << "*** The Phone Book is empty ***" << RESET << std::endl;
 		return;
 	}
-	std::cout << " ---------------------------------------------------" << std::endl;
+	std::cout << std::endl << BLUE << BOLD << " PhoneBook Search" << RESET << std::endl << SEPARATOR << std::endl;
 	std::cout << "| " << std::setw(10) <<"Index" << " | "
           << std::setw(10) << "First Name" << " | "
           << std::setw(10) << "Last Name" << " | "
           << std::setw(10) << "Nickname" << " |" << std::endl;
-	std::cout << " ---------------------------------------------------" << std::endl;
+	std::cout << SEPARATOR << std::endl;
 	for (int i = 0; i < nbContacts; i++)
 		_contacts[i].displayFullContacts(i);
-	std::cout << " ---------------------------------------------------" << std::endl;
+	std::cout << SEPARATOR << std::endl;
 	std::cout << std::endl << " -- Enter the index of the contact you want to display: ";
 	std::string input;
 	getline(std::cin, input);
@@ -136,7 +136,6 @@ Contact	PhoneBook::create_contact(Contact contactToCreate)
 	contactToCreate.setNickname();
 	contactToCreate.setPhoneNumber();
 	contactToCreate.setDarkestSecret();
+	std::cout << GREEN << "✓ Contact added ✓" << RESET << std::endl;
 	return (contactToCreate);
-	std::cout << "Contact added" << std::endl;
-	std::cout << "The PhoneBook has " << _nbContacts << " contacts now" << std::endl << std::endl;
 }

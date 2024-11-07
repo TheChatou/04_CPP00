@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:02:11 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/24 12:54:55 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:51:09 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	Contact::setFirstName()
 {
 	std::string firstName;
 	
-	std::cout << " -- " << UNDERLINE << "Enter first name:" << RESET << " ";
+	std::cout << BLUE << " > " << RESET << UNDERLINE << "Enter first name:" << RESET << " \t\t";
 	getline(std::cin, firstName);
 	if (_checkInput(firstName) == 1)
 	{
 		std::cout << RED << "Invalid input, try again: " << RESET << std::endl;
-		setFirstName();
+		return setFirstName();
 	}
 	_firstName = firstName;
 }
@@ -43,12 +43,12 @@ void	Contact::setLastName()
 {
 	std::string lastName;
 	
-	std::cout << " -- " << UNDERLINE << "Enter last name:" << RESET << " ";
+	std::cout << BLUE << " > " << RESET << UNDERLINE << "Enter last name:" << RESET << " \t\t";
 	getline(std::cin, lastName);
 	if (_checkInput(lastName) == 1)
 	{
 		std::cout << RED << "Invalid input, try again: " << RESET << std::endl;
-		setFirstName();
+		return setFirstName();
 	}
 	_lastName = lastName;
 }
@@ -56,12 +56,12 @@ void	Contact::setNickname()
 {
 	std::string nickname;
 	
-	std::cout << " -- " << UNDERLINE << "Enter nickname:" << RESET << " ";
+	std::cout << BLUE << " > " << RESET << UNDERLINE << "Enter nickname:" << RESET << " \t\t";
 	getline(std::cin, nickname);
 	if (_checkInput(nickname) == 1)
 	{
 		std::cout << RED << "Invalid input, try again: " << RESET << std::endl;
-		setFirstName();
+		return setFirstName();
 	}
 	_nickname = nickname;
 }
@@ -70,12 +70,12 @@ void	Contact::setPhoneNumber()
 {
 	std::string	phoneNumber;
 
-	std::cout << " -- " << UNDERLINE << "Enter phone number:" << RESET << " ";
+	std::cout << BLUE << " > " << RESET << UNDERLINE << "Enter phone number:" << RESET << " \t\t";
 	getline(std::cin, phoneNumber);
 	if (_checkInput(phoneNumber) == 1)
 	{
 		std::cout << RED << "Invalid input, try again: " << RESET << std::endl;
-		setFirstName();
+		return setFirstName();
 	}
 	_phoneNumber = phoneNumber;
 }
@@ -84,12 +84,12 @@ void	Contact::setDarkestSecret()
 {
 	std::string darkestSecret;
 	
-	std::cout << " -- " << UNDERLINE << "Enter darkest secret:" << RESET << " ";
+	std::cout << BLUE << " > " << RESET << UNDERLINE << "Enter darkest secret:" << RESET << " \t";
 	getline(std::cin, darkestSecret);
 	if (_checkInput(darkestSecret) == 1)
 	{
 		std::cout << RED << "Invalid input, try again: " << RESET << std::endl;
-		setFirstName();
+		return setFirstName();
 	}
 	_darkestSecret = darkestSecret;
 	
@@ -98,9 +98,9 @@ void	Contact::setDarkestSecret()
 void	Contact::displayFullContacts(int i) const
 {
     std::cout << "| " << std::setw(10) << i + 1 << " | ";
-    std::cout << std::setw(10) << truncateString(_firstName) << " | ";
-    std::cout << std::setw(10) << truncateString(_lastName) << " | ";
-    std::cout << std::setw(10) << truncateString(_nickname) << " |" << std::endl;
+    std::cout << std::setw(10) << _truncateString(_firstName) << " | ";
+    std::cout << std::setw(10) << _truncateString(_lastName) << " | ";
+    std::cout << std::setw(10) << _truncateString(_nickname) << " |" << std::endl;
 }
 
 void	Contact::displaySingleContact(int i) const
@@ -114,7 +114,7 @@ void	Contact::displaySingleContact(int i) const
 }
 
 // _PRIVATE	///////////////////////////////////////////////////////////////////
-std::string Contact::truncateString(const std::string &str) const
+std::string Contact::_truncateString(const std::string &str) const
 {
     if (str.length() > 10)
         return str.substr(0, 9) + ".";
